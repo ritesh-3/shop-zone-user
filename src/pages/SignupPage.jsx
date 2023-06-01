@@ -7,6 +7,7 @@ import axios from 'axios';
 import { server } from '../ServerConfigs';
 import { toast } from 'react-toastify';
 import bgImgg from "../assets/bg-imgg.jpg"
+import styles from '../components/Styles/styles';
 
 const SignupPage = () => {
 
@@ -53,7 +54,7 @@ const SignupPage = () => {
 
 
     return (
-        <div className=' bg-cover min-h-screen flex justify-center items-center' style={{ backgroundImage: `url(${bgImgg})`}}>
+        <div className={`${styles.gradientSignup} bg-cover min-h-screen flex justify-center items-center`}>
             <div className="flex flex-col items-center gap-5 w-[90vw] sm:w-[400px]">
                 <img onClick={() => setshowPassword(!showPassword)} src={Logo} className=' h-[100px] w-[100px] rounded-full' />
                 <DynamicForm fields={fields} onSubmit={handleSubmit} submitBtnName='Sign up' showPassword={showPassword} />

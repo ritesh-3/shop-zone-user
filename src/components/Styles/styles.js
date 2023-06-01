@@ -2,7 +2,7 @@ const styles = {
   paginatoreConatiner: "flex justify-center gap-3 mt-4 text-gray-500 hover:text-gray-700 hover:cursor-pointer",
   custom_container: "w-11/12 hidden sm:block",
   gradientLogin: "bg-gradient-to-r from-yellow-100 via-yellow-300 to-yellow-500",
-  gradientSignup: "bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600",
+  gradientSignup: "bg-gradient-to-r from-purple-200 via-purple-400 to-purple-800",
   section: '',
   productTitle: 'text-[25px] font-[600] font-Roboto text-[#333]',
   productDiscountPrice: "font-bold text-[18px] text-[#333] font-Roboto",

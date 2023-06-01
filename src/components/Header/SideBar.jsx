@@ -62,18 +62,19 @@ const Sidebar = ({ active, expanded, SidebarData }) => {
                         );
                     })}
                     <div className="menu">
-                        <div className="menuItem">
+                        <div className="">
                             {isAuthenticated ? (
-                                <Link to="/profile">
+                                <Link className="flex mx-7 gap-2 text-gray-800" to="/profile">
                                     {user && user.avatar ? <img
                                         src={user?.avatar}
                                         className="w-[40px] h-[40px] rounded-full"
                                         alt=""
-                                    /> : <VscAccount size={30} />}
+                                    /> : <VscAccount className="flex mx-7 gap-2 text-gray-800"   size={25} />}
+                                    <span>My profile</span>
                                 </Link>
                             ) : (
-                                <Link to="/login">
-                                    <BiLogInCircle size={30} />
+                                <Link className="flex mx-7 gap-2 text-gray-800" to="/login">
+                                    <BiLogInCircle size={25} />
                                     <span>Login</span>
                                 </Link>
                             )}

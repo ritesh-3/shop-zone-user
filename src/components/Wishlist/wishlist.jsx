@@ -6,6 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromWishlist } from "../../redux/slices/wishlistSlice";
 import { addToCart } from "../../redux/slices/cartSlice";
+import { motion } from "framer-motion"
 
 const Wishlist = ({ setOpenWishlist }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -16,14 +17,20 @@ const Wishlist = ({ setOpenWishlist }) => {
   };
 
   const addToCartHandler = (data) => {
-    const newData = {...data, qty:1};
+    const newData = { ...data, qty: 1 };
     dispatch(addToCart(newData));
     setOpenWishlist(false);
   }
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-[#0000004b] h-screen z-10">
-      <div className="fixed top-0 right-0 h-full  w-[80%] md:w-[25%] overflow-y-scroll bg-white flex flex-col justify-between shadow-sm">
+    <motion.div className="fixed top-0 left-0 w-full bg-[#0000004b] h-screen z-10"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <motion.div  className="fixed top-0 right-0 h-full  w-[80%] md:w-[25%] overflow-y-scroll bg-white flex flex-col justify-between shadow-sm"
+        initial={{ x: "-100%" }}
+        animate={{ x: "0%" }}
+      >
         {wishlist && wishlist.length === 0 ? (
           <div className="w-full h-screen flex items-center justify-center">
             <div className="flex w-full justify-end pt-5 pr-5 fixed top-3 right-3">
@@ -64,12 +71,12 @@ const Wishlist = ({ setOpenWishlist }) => {
             </div>
           </>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
-const CartSingle = ({ data,removeFromWishlistHandler,addToCartHandler }) => {
+const CartSingle = ({ data, removeFromWishlistHandler, addToCartHandler }) => {
   const [value, setValue] = useState(1);
   const totalPrice = data.discountPrice * value;
 
@@ -77,7 +84,7 @@ const CartSingle = ({ data,removeFromWishlistHandler,addToCartHandler }) => {
     <div className="border-b p-4">
       <div className="w-full flex items-center">
         <RxCross1 className="cursor-pointer 800px:mb-['unset'] 800px:ml-['unset'] mb-2 ml-2"
-        onClick={() => removeFromWishlistHandler(data)}
+          onClick={() => removeFromWishlistHandler(data)}
         />
         <img
           src={data?.images[0]}
@@ -93,7 +100,7 @@ const CartSingle = ({ data,removeFromWishlistHandler,addToCartHandler }) => {
         </div>
         <div>
           <BsCartPlus size={20} className="cursor-pointer" tile="Add to cart"
-           onClick={() => addToCartHandler(data)}
+            onClick={() => addToCartHandler(data)}
           />
         </div>
       </div>

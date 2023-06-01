@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../../assets/logo-color1.png'
 import logo1 from '../../assets/logo1.png'
-import { BiSearchAlt2, BiCart, BiHeart, BiMenu } from 'react-icons/bi';
+import {  BiCart, BiHeart, BiMenu, BiLogInCircle } from 'react-icons/bi';
 import { VscAccount, VscClose } from 'react-icons/vsc';
 import './Header.css'
 import { useMediaQuery } from 'react-responsive';
