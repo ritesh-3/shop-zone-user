@@ -4,11 +4,11 @@ import Loader from "../components/Loader";
 
 const  AlredyLoggedInProtectRoute = ({ children }) => {
 
-  const { isLoading, isSeller } = useSelector((state) => state.seller);
-  if (isLoading === true) {
+  const { loading, user } = useSelector((state) => state.user);
+  if (loading === true) {
     return <Loader />;
   } else {
-    if (isSeller) {
+    if (user) {
       return <Navigate to={`/`} replace />;
     }
     return children;

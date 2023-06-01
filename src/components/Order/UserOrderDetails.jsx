@@ -181,7 +181,6 @@ const UserOrderDetails = () => {
     };
 
 
-
     return (
         <div className="order-details shadow-md">
             <div className="order-details-header">
@@ -223,7 +222,8 @@ const UserOrderDetails = () => {
 
             <div className="payment-info">
                 <h4 className="payment-info-title">Payment Info:</h4>
-                <p className="text-base text-red-300">{data?.paymentInfo?.type}</p>
+                <p className="text-base text-blue-500">{data?.paymentInfo?.type}</p>
+                <p className="text-base text-green-500">{data?.paymentInfo?.status}</p>
             </div>
 
             {

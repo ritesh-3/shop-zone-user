@@ -30,18 +30,18 @@ import ProtectedRoute from './components/ProtectedRoute'
 import AlredyLoggedInProtectRoute from './components/AlredyLoggedInProtectRoute'
 import NotFound from './pages/NotFound'
 import OrderSuccessPage from './pages/OrderSuccessPage'
+import { useDispatch } from 'react-redux'
 
 function App() {
   const [count, setCount] = useState(0)
   const [darkMode, toggleDarkMode] = useDarkMode();
   const [stripeApikey, setStripeApiKey] = useState("");
-
+  const dispatch = useDispatch();
   async function getStripeApikey() {
     const { data } = await axios.get(`${server}/payment/stripeapikey`);
     setStripeApiKey(data.stripeApikey);
   }
   useAppReload();
-
   useEffect(() => {
     getStripeApikey();
   }, [])
@@ -66,7 +66,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<AlredyLoggedInProtectRoute> <LoginPage /></AlredyLoggedInProtectRoute>} />
-          <Route path='/signup' element={<AlredyLoggedInProtectRoute> <SignupPage /> </AlredyLoggedInProtectRoute> } />
+          <Route path='/signup' element={<AlredyLoggedInProtectRoute> <SignupPage /> </AlredyLoggedInProtectRoute>} />
           <Route path="/activation/:activation_token" element={<ActivationPage />}
           />
           <Route path='/products' element={<ProductsPage />} />

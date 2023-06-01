@@ -1,12 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header/Header";
+import CheckoutSteps from "../components/Checkout/CheckoutSteps";
 
 const OrderSuccessPage = () => {
   return (
     <div>
       <Header />
-      <Success />
+      <div className='mt-5'>
+        <CheckoutSteps active={3} />
+        <Success />
+      </div>
     </div>
   );
 };

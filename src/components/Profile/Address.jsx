@@ -44,7 +44,7 @@ const Address = () => {
         dispatch(deleteUserAddress(id));
     };
 
-    console.log(user?.addresses)
+
 
     useEffect(() => {
         setFilteredData(
@@ -60,7 +60,7 @@ const Address = () => {
         { title: "Adress type", value: 'addressType' },
         { title: "Address 1", value: 'address1' },
         { title: "Address 2", value: 'address2' },
-        { title: "Actions", value: "actions", actions: ["delete", "view"] }
+        { title: "Actions", value: "actions", actions: ["delete"] }
     ]
 
 

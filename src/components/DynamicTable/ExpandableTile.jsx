@@ -2,8 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { MdExpandLess, MdExpandMore, MdOutlineDeleteOutline } from "react-icons/md";
-import { RxEyeOpen } from "react-icons/rx";
-import { BiBookOpen } from "react-icons/bi";
+import { BiBookOpen, BiDetail } from "react-icons/bi";
 
 
 const makeStyle = (status) => {
@@ -86,10 +85,11 @@ export const ExpandableTile = ({ row, headers, onDeleteAction, onViewAction, onO
 
                                             case "actions":
                                                 return (
-                                                    <div className="table-actions">
+                                                    <div className="tile-content">
+                                                         <strong>{header.title}</strong>
                                                         {header.actions.includes("view") && (
-                                                            <RxEyeOpen
-                                                                color="cyan"
+                                                            <BiDetail
+                                                                color="#0ea5e9"
                                                                 size={20}
                                                                 onClick={() => viewActionClicked(row)}
                                                             />

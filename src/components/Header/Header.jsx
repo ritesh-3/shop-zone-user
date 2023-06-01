@@ -65,7 +65,7 @@ const NavBarContainer = ({ setactiveLink}) => {
             <Link to="/profile">
               {user && user.avatar ? <img
                 src={user?.avatar}
-                className="w-[40px] h-[40px] rounded-full"
+                className="w-[28px] h-[28px] rounded-full"
                 alt=""
               /> : <VscAccount size={30}  />}
             </Link>

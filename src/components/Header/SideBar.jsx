@@ -34,7 +34,7 @@ const Sidebar = ({ active, expanded, SidebarData }) => {
 
     }
 
-    // console.log(window.innerWidth)
+
     return (
         <>
             <motion.div className='sidebar'
@@ -67,9 +67,9 @@ const Sidebar = ({ active, expanded, SidebarData }) => {
                                 <Link className="flex mx-7 gap-2 text-gray-800" to="/profile">
                                     {user && user.avatar ? <img
                                         src={user?.avatar}
-                                        className="w-[40px] h-[40px] rounded-full"
+                                        className="w-[22px] h-[22px] rounded-full"
                                         alt=""
-                                    /> : <VscAccount className="flex mx-7 gap-2 text-gray-800"   size={25} />}
+                                    /> : <VscAccount   size={20} />}
                                     <span>My profile</span>
                                 </Link>
                             ) : (

@@ -10,7 +10,7 @@ const storage = getStorage(app);
 
 
 export const useImageUploader = (folderName = '') => {
-  const seller = useSelector((state) => state.seller);
+  const { user } = useSelector((state) => state.user);
   const [selectedImages, setSelectedImages] = useState([]);
   const [uploading, setUploading] = useState(false);
   // const [uploadedImages, setUploadedImages] = useState([]);
@@ -33,8 +33,8 @@ export const useImageUploader = (folderName = '') => {
 
   const uploadImage = async (image) => {
     try {
-      const sellerEmail = seller?.user?.email;
-      if (!sellerEmail) {
+      const userEmail = user?.email;
+      if (!userEmail) {
         throw new Error('User not identified');
       }
   
@@ -42,7 +42,7 @@ export const useImageUploader = (folderName = '') => {
       setError(null);
       let imagePath = '';
   
-      imagePath = `images/${sellerEmail}`;
+      imagePath = `images/${userEmail}`;
   
       const fileExtension = image.name.split('.').pop(); // Extract the file extension
       const imageName = `myAvatar.${fileExtension}`; // Add the file extension to the name
@@ -74,11 +74,11 @@ export const useImageUploader = (folderName = '') => {
       setError(null);
       let imagePath = '';
 
-      if (seller && seller.user && seller.user.email) {
+      if (user  && user.email) {
         if (folderName) {
-          imagePath = `images/${seller.user.email}/${folderName}`;
+          imagePath = `images/${user.email}/${folderName}`;
         } else {
-          imagePath = `images/${seller.user.email}`;
+          imagePath = `images/${user.email}`;
         }
         const uploadPromises = selectedImages.map((image) => {
           const uniqueName = generateUniqueName(image.name);
