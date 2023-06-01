@@ -1,0 +1,34 @@
+.nav-icons-right div {
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.nav-icons-right div:hover {
+    color: var(--gray);
+}
+
+.nav-items li {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.nav-items li:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: var(--black);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s;
+}
+
+.nav-items li:hover::after {
+    transform: scaleX(1);
+}
+

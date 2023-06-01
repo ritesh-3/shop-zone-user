@@ -1,0 +1,88 @@
+.Cards {
+  display: flex;
+  gap: 10px;
+}
+
+.parentContainer {
+  width: 100%;
+}
+
+.SimpleCard {
+  display: flex;
+  flex: 1;
+  height: 8.5rem;
+  border-radius: 0.7rem;
+  background-color: #ffffff;
+  color: #ffffff;
+  padding: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.SimpleCard:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.SimpleCard .radialBar {
+  flex: 0 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+
+
+}
+
+.SimpleCard .radialBar .CircularProgressbar {
+  width: 4rem;
+}
+
+.SimpleCard .radialBar .CircularProgressbar-path {
+  stroke: #fffd;
+  background: transparent;
+  stroke-width: 12x;
+  /* filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); */
+}
+
+.SimpleCard .radialBar .CircularProgressbar-text {
+  fill: #ffff;
+  font-size: 28px;
+  font-weight: bold;
+  text-anchor: middle;
+}
+
+.SimpleCard .detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.SimpleCard .detail span {
+  font-size: 18px;
+}
+
+.SimpleCard .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .Cards {
+    flex-direction: column;
+  }
+
+  .parentContainer {
+    height: 9rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .Cards {
+    width: 90%;
+  }
+}

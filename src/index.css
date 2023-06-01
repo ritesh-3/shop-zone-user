@@ -1,0 +1,342 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --white: #ffff;
+  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+  --pink: #FF919D;
+  --glass: rgba(255, 255, 255, 0.54);
+  --slate: #d1d5db;
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+  font-family: Nunito, Helvetica, sans-serif;
+  background: #F6F6F5;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #aba8a8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aba8a8;
+}
+
+.inner-padding{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+
+.AppGlass {
+  display: grid;
+  height: 82vh;
+  background: #fee2e2;
+  border-radius: 2rem;
+  gap: 48px;
+  grid-template-columns: 11rem auto;
+  overflow: hidden;
+  margin: 18px;
+}
+
+
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 4rem;
+  transition: all 300ms ease;
+}
+
+/* logo */
+.bars {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  height: 5rem;
+  font-weight: bold;
+  font-size: 22px;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: 4%;
+}
+
+.logo>span>span {
+  color: var(--pink);
+}
+
+.logo>img {
+  /* width: 3rem;
+  height: 3rem; */
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* menu */
+.menu {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 2.5rem;
+  margin-left: 2rem;
+  position: relative;
+  transition: all 300ms ease;
+  border-radius: 0.7rem;
+  font-size: 14px;
+}
+
+.menuItem:hover {
+  cursor: pointer;
+}
+
+.menu .menuItem:last-child {
+  position: absolute;
+  bottom: 2.3rem;
+  width: 100%;
+}
+
+.active {
+  background: var(--white);
+  margin-left: 0;
+}
+
+
+
+.active::before {
+  content: "";
+  width: 8px;
+  height: 100%;
+  background: var(--pink);
+  margin-right: calc(1rem - 8px);
+}
+
+.profileActive {
+  background: var(--white);
+  margin-left: 0;
+}
+
+
+
+.profileActive::before {
+  content: "";
+  width: 8px;
+  height: 100%;
+  background: var(--pink);
+  margin-right: calc(1rem - 8px);
+}
+
+
+.MainDash {
+  /* padding-top: 1rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+
+/* sideDetail*/
+.detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.detail>span:nth-child(2) {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.detail>span:nth-child(3) {
+  font-size: 12px;
+}
+
+/* ExpandedCard */
+.ExpandedCard {
+  position: absolute;
+  width: 60%;
+  height: 70vh;
+  z-index: 9;
+  left: 13rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.ExpandedCard>span:nth-of-type(1) {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 0px 0px 15px white;
+}
+
+.ExpandedCard>span:nth-of-type(2) {
+  color: rgb(236, 236, 236);
+  font-size: 15px;
+}
+
+.chartContainer {
+  width: 70%;
+}
+
+
+
+.Updates {
+  width: 85%;
+  background: white;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+
+}
+
+.update {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.update>img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.noti>div>span:nth-of-type(1) {
+  font-weight: bold;
+}
+
+
+/* Tablets */
+@media screen and (max-width: 1200px) {
+  .AppGlass {
+    grid-template-columns: 10% 50% ;
+    overflow-y: scroll;
+  }
+
+ 
+  .menuItem>span {
+    display: none;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .MainDash {
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+
+
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  .AppGlass {
+    grid-template-columns: 1fr;
+    min-height: 89vh;
+    margin:8px;
+    border: none;
+  }
+
+
+  .sidebar {
+    position: fixed;
+    z-index: 9;
+    background: #F6F6F5;
+    width: 55%;
+    padding-right: 1rem;
+    height: 100%;
+  }
+
+  .menuItem>span {
+    display: block;
+  }
+
+  .logo {
+    display: flex;
+  }
+
+  .logo>img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .menu .menuItem:last-child {
+    position: relative;
+    margin-top: 10rem;
+  }
+
+  /* .menu .menuItem:last-child {
+    position: absolute;
+    bottom: 13rem;
+    width: 100%;
+  } */
+
+
+  .bars {
+    display: flex;
+    position: fixed;
+    top: 5rem;
+    left: 60%;
+    background: #fff;
+    padding: 4px;
+    border-radius: 15px;
+    z-index: 9;
+  }
+
+  .close {
+    left: -60%;
+  }
+
+  .MainDash {
+    align-items: center;
+  }
+
+
+  .Updates {
+    margin: auto
+  }
+}
