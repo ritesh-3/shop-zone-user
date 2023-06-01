@@ -71,7 +71,7 @@ const NavBarContainer = ({ setactiveLink}) => {
             </Link>
           ) : (
             <Link to="/login">
-              <VscAccount size={30}  />
+              <BiLogInCircle size={30}  />
             </Link>
           )}
         </div>

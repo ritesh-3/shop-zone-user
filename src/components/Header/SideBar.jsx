@@ -6,16 +6,18 @@ import Logo from "../../assets/logo-color2.png";
 // import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { BiCart, BiHeart, BiMenu } from 'react-icons/bi'
-import { VscAccount, VscClose } from "react-icons/vsc"
-import styles from "../Styles/styles";
+import { BiCart, BiHeart, BiLogInCircle, BiMenu } from 'react-icons/bi'
+import { VscAccount } from "react-icons/vsc"
 import Cart from "../Cart/Cart";
 import Wishlist from "../Wishlist/wishlist";
+import { useSelector } from "react-redux";
 
-const Sidebar = ({ active, expanded, SidebarData}) => {
+
+const Sidebar = ({ active, expanded, SidebarData }) => {
     const [selected, setSelected] = useState(active ?? 0);
     const [openCart, setOpenCart] = useState(false);
     const [openWishlist, setOpenWishlist] = useState(false);
+    const { isAuthenticated, user } = useSelector((state) => state.user);
     const navigate = useNavigate()
     const sidebarVariants = {
         true: {
@@ -61,8 +63,20 @@ const Sidebar = ({ active, expanded, SidebarData}) => {
                     })}
                     <div className="menu">
                         <div className="menuItem">
-                            <VscAccount className="text-xl" />
-                            <span>My Profile</span>
+                            {isAuthenticated ? (
+                                <Link to="/profile">
+                                    {user && user.avatar ? <img
+                                        src={user?.avatar}
+                                        className="w-[40px] h-[40px] rounded-full"
+                                        alt=""
+                                    /> : <VscAccount size={30} />}
+                                </Link>
+                            ) : (
+                                <Link to="/login">
+                                    <BiLogInCircle size={30} />
+                                    <span>Login</span>
+                                </Link>
+                            )}
                         </div>
                         <div className="menuItem"
                             onClick={() => setOpenWishlist(true)}
