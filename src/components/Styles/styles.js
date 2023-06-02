@@ -4,7 +4,7 @@ const styles = {
   gradientLogin: "bg-gradient-to-r from-yellow-100 via-yellow-300 to-yellow-500",
   gradientSignup: "bg-gradient-to-r from-purple-200 via-purple-400 to-purple-800",
   section: '',
-  productTitle: 'text-[25px] font-[600] font-Roboto text-[#333]',
+  productTitle: 'text-5xl font-[600] text-[#333]',
   productDiscountPrice: "font-bold text-[18px] text-[#333] font-Roboto",
   price: "font-[500] text-[16px] text-[#d55b45] pl-3 mt-[-4px] line-through",
   shop_name: "pt-3 text-[15px] text-blue-400 pb-3",

@@ -21,6 +21,7 @@
 
 ::-webkit-scrollbar {
   width: 2px;
+
 }
 
 /* Track */
@@ -38,10 +39,23 @@
   background: #aba8a8;
 }
 
-.inner-padding{
+.inner-padding {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.product-scroll::-webkit-scrollbar {
+  /* width: px; */
+  display: none;
+  height: 3px;
+}
+
+/* Handle on hover */
+.product-scroll::-webkit-scrollbar-thumb {
+  background: none;
+  border-radius: 4px;
+}
+
 
 
 
@@ -245,14 +259,33 @@
 }
 
 
+
+
+.product-card-side-buttons {
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #ffff;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition: transform 0.3s ease;
+  transform: translateX(200%);
+}
+
+
+.product-card-container:hover .product-card-side-buttons {
+  transform: translateX(-100%);
+}
+
 /* Tablets */
 @media screen and (max-width: 1200px) {
   .AppGlass {
-    grid-template-columns: 10% 50% ;
+    grid-template-columns: 10% 50%;
     overflow-y: scroll;
   }
 
- 
+
   .menuItem>span {
     display: none;
   }
@@ -273,11 +306,14 @@
 
 
 @media screen and (max-width: 768px) {
+  .product-card-side-buttons {
+    transform: translateX(0);
+  }
 
   .AppGlass {
     grid-template-columns: 1fr;
     min-height: 89vh;
-    margin:8px;
+    margin: 8px;
     border: none;
   }
 

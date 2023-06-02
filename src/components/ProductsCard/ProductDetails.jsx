@@ -87,7 +87,7 @@ const ProductDetails = ({ data }) => {
       0
     );
 
-  const avg =  totalRatings / totalReviewsLength || 0;
+  const avg = totalRatings / totalReviewsLength || 0;
 
   const averageRating = avg.toFixed(2);
 
@@ -119,42 +119,40 @@ const ProductDetails = ({ data }) => {
       {data ? (
         <div >
           <div className="w-full py-5">
-            <div className=" sm:flex w-full 800px:flex">
-              <div className="w-full 800px:w-[50%]">
+            <div className="w-full sm:flex">
+              <div className="w-full sm:w-[50%]">
                 <img
                   src={data && data.images[select]}
                   alt=""
-                  className="w-[500px]"
+                  className="w-[500px] m-auto"
                 />
-                <div className="w-full flex p-5">
-                  {data &&
-                    data.images.map((i, index) => (
-                      <div
-                        className={`${
-                          select === 0 ? "border  mr-3 mt-1" : "null mr-3 mt-1"
-                        } cursor-pointer`}
-                      >
-                        <img
-                          src={i}
-                          alt=""
-                          className="h-[120px] sm:h-[150px] overflow-hidden"
-                          onClick={() => setSelect(index)}
-                        />
-                      </div>
-                    ))}
-                  <div
-                    className={`${
-                      select === 1 ? "border" : "null"
-                    } cursor-pointer`}
-                  ></div>
+                <div className="product-scroll w-full  flex p-5 overflow-x-auto">
+                  {/* <div className="flex-shrink-0"> */}
+                    {data &&
+                      data.images.map((i, index) => (
+                        <div
+                          key={index}
+                          className={`${select === index ? "border mr-3 mt-1 flex-shrink-0" : "null mr-3 mt-1 flex-shrink-0"
+                            } cursor-pointer`}
+                        >
+                          <img
+                            src={i}
+                            alt=""
+                            className="h-[100px] sm:h-[150px] object-contain  overflow-hidden"
+                            onClick={() => setSelect(index)}
+                          />
+                        </div>
+                      ))}
+                  {/* </div> */}
                 </div>
+
               </div>
-              <div className="w-full 800px:w-[50%] p-5">
+              <div className="w-full sm:w-[50%] flex flex-col p-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                <p>{data.description}</p>
+                <p className="text-gray-600 my-4">{data.description}</p>
                 <div className="flex">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                  ₹{data.discountPrice}
+                    ₹{data.discountPrice}
                   </h4>
                   <h3 className={`${styles.price}`}>
                     {data.originalPrice ? data.originalPrice + "₹" : null}
@@ -173,7 +171,7 @@ const ProductDetails = ({ data }) => {
                       {count}
                     </span>
                     <button
-                       className={`${styles.buttonPink} ml-2`}
+                      className={`${styles.buttonPink} ml-2`}
                       onClick={incrementCount}
                     >
                       +
@@ -216,11 +214,11 @@ const ProductDetails = ({ data }) => {
                     />
                   </Link>
                   <div className="pr-8">
-                    <Link to={`/shop/preview/${data?.shop._id}`}>
+                    {/* <Link to={`/shop/preview/${data?.shop._id}`}> */}
                       <h3 className={`${styles.shop_name} pb-1 pt-1`}>
                         {data.shop.name}
                       </h3>
-                    </Link>
+                    {/* </Link> */}
                     <h5 className="pb-3 text-[15px]">
                       ({averageRating}/5) Ratings
                     </h5>
@@ -262,9 +260,9 @@ const ProductDetailsInfo = ({
   return (
     <div className="bg-[#f5f6fb] px-3 800px:px-10 py-2 rounded">
       <div className="w-full flex justify-between border-b pt-10 pb-2">
-        <div className="relative">
+        {/* <div className="relative">
           <h5
-            
+
             onClick={() => setActive(1)}
           >
             Product Details
@@ -272,7 +270,7 @@ const ProductDetailsInfo = ({
           {active === 1 ? (
             <div className={`${styles.active_indicator}`} />
           ) : null}
-        </div>
+        </div> */}
         <div className="relative">
           <h5 onClick={() => setActive(2)}>
             Product Reviews
@@ -329,7 +327,7 @@ const ProductDetailsInfo = ({
       {active === 3 && (
         <div className="w-full block 800px:flex p-5">
           <div className="w-full 800px:w-[50%]">
-            <Link to={`/shop/preview/${data.shop._id}`}>
+            {/* <Link to={`/shop/preview/${data.shop._id}`}> */}
               <div className="flex items-center">
                 <img
                   src={data?.shop?.avatar}
@@ -343,7 +341,7 @@ const ProductDetailsInfo = ({
                   </h5>
                 </div>
               </div>
-            </Link>
+            {/* </Link> */}
             <p className="pt-2">{data.shop.description}</p>
           </div>
           <div className="w-full 800px:w-[50%] mt-5 800px:mt-0 800px:flex flex-col items-end">
@@ -364,13 +362,13 @@ const ProductDetailsInfo = ({
                 Total Reviews:{" "}
                 <span className="font-[500]">{totalReviewsLength}</span>
               </h5>
-              <Link to="/">
+              {/* <Link to="/">
                 <div
                   className={`${styles.button} w-[150px]`}
                 >
                   <h4 className="text-white">Visit Shop</h4>
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
