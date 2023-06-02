@@ -62,23 +62,23 @@ const Sidebar = ({ active, expanded, SidebarData }) => {
                         );
                     })}
                     <div className="menu">
-                        <div className="">
-                            {isAuthenticated ? (
-                                <Link className="flex mx-7 gap-2 text-gray-800" to="/profile">
-                                    {user && user.avatar ? <img
-                                        src={user?.avatar}
-                                        className="w-[22px] h-[22px] rounded-full"
-                                        alt=""
-                                    /> : <VscAccount   size={20} />}
-                                    <span>My profile</span>
-                                </Link>
-                            ) : (
-                                <Link className="flex mx-7 gap-2 text-gray-800" to="/login">
-                                    <BiLogInCircle size={25} />
-                                    <span>Login</span>
-                                </Link>
-                            )}
-                        </div>
+
+                        {isAuthenticated ? (
+                            <div className="menuItem"
+                                onClick={() => navigate('/profile')}
+                            >
+                                <VscAccount className="text-xl" />
+                                <span>My profile</span>
+                            </div>
+                        ) : (
+                            <div className="menuItem"
+                                onClick={() => navigate('/login')}
+                            >
+                                <BiLogInCircle className="text-xl" />
+                                <span>Login</span>
+                            </div>
+                        )}
+
                         <div className="menuItem"
                             onClick={() => setOpenWishlist(true)}
                         >

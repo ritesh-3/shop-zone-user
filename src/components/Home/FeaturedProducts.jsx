@@ -16,7 +16,7 @@ const FeaturedProduct = () => {
         {featuredProducts && featuredProducts.length !== 0 ? (
           featuredProducts.map((i, index) => <ProductCard data={i} key={index} />)
         ) : (
-          <p>No featured products available.</p>
+          <p className="text-gray-600">No featured products available.</p>
         )}
       </div>
     </div>
