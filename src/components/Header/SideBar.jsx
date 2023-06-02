@@ -64,19 +64,19 @@ const Sidebar = ({ active, expanded, SidebarData }) => {
                     <div className="menu">
 
                         {isAuthenticated ? (
-                            <div className="menuItem"
+                            <button className="menuItem"
                                 onClick={() => navigate('/profile')}
                             >
                                 <VscAccount className="text-xl" />
                                 <span>My profile</span>
-                            </div>
+                            </button>
                         ) : (
-                            <div className="menuItem"
+                            <button className="menuItem"
                                 onClick={() => navigate('/login')}
                             >
                                 <BiLogInCircle className="text-xl" />
                                 <span>Login</span>
-                            </div>
+                            </button>
                         )}
 
                         <div className="menuItem"

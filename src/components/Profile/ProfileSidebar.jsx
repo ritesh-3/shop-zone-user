@@ -4,11 +4,6 @@ import { useSelector } from "react-redux";
 import { AiOutlineLogin, AiOutlineMessage } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from "react-icons/hi";
-import {
-  MdOutlineAdminPanelSettings,
-  MdOutlinePassword,
-  MdOutlineTrackChanges,
-} from "react-icons/md";
 import { TbAddressBook } from "react-icons/tb";
 import { RxPerson } from "react-icons/rx";
 import axios from "axios";
@@ -55,7 +50,7 @@ const ProfileSidebar = ({ setActive, active }) => {
       .then((res) => {
         toast.success(res.data.message);
         window.location.reload(true);
-        navigate("/login");
+
       })
       .catch((error) => {
         console.log(error.response.data.message);
@@ -105,7 +100,7 @@ const ProfileSidebar = ({ setActive, active }) => {
           {sidebarData.map((item, index) => {
             return (
 
-              <div
+              <button
                 className={selected === item.index ? "menuItem profileActive" : "menuItem"}
                 key={index}
                 onClick={() => handleNavClick(item, index)}
@@ -113,7 +108,7 @@ const ProfileSidebar = ({ setActive, active }) => {
 
                 <item.icon className="text-xl" />
                 <span>{item.label}</span>
-              </div>
+              </button>
             );
           })}
         </div>
