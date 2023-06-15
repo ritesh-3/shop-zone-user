@@ -2,6 +2,8 @@
 
 Welcome to the Shop Zone User repository! This repository contains the UI side code for the e-commerce project called Shop Zone. It focuses on the functionality required for users, allowing them to view products, add items to their cart, add products to their wishlist, make payments, view their orders, request refunds, and more. The project is built using React.js.
 
+[Demo](https://shopzone-dev.web.app/)
+
 ## Features
 
 - Product browsing: Users can view a wide range of products available on Shop Zone.
