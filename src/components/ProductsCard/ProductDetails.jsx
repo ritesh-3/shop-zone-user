@@ -297,21 +297,21 @@ const ProductDetailsInfo = ({
       ) : null}
 
       {active === 2 ? (
-        <div className="w-full min-h-[40vh] flex flex-col items-center py-3 overflow-y-scroll">
+        <div className="w-full min-h-[40vh] flex flex-col items-center py-3 overflow-y-scroll text-gray-700">
           {data &&
             data.reviews.map((item, index) => (
               <div className="w-full flex my-2">
                 <img
                   src={item.user.avatar}
                   alt=""
-                  className="w-[80px] rounded-full"
+                  className="w-[60px] rounded-full"
                 />
                 <div className="pl-2 ">
                   <div className="w-full flex items-center">
-                    <h1 className="font-[500] mr-3">{item.user.name}</h1>
+                    <h1 className="font-[500] mr-3 text-gray-700">{item.user.name}</h1>
                     <Ratings rating={data?.ratings} />
                   </div>
-                  <p>{item.comment}</p>
+                  <p className="text-gray-600">{item.comment}</p>
                 </div>
               </div>
             ))}

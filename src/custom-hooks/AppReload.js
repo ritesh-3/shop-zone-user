@@ -11,7 +11,6 @@ const useAppReload = () => {
   
   useEffect(() => {
     dispatch(loadUser());
-    dispatch(loadSeller());
     dispatch(getAllProducts());
     dispatch(getAllEvents());
 
